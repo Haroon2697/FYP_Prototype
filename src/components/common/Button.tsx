@@ -26,27 +26,27 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 select-none disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed cursor-pointer tracking-tight';
+      'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 select-none disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed cursor-pointer tracking-tight';
 
     const variantStyles = {
       primary:
-        'bg-gradient-to-r from-violet-600 via-indigo-600 to-indigo-700 hover:from-violet-500 hover:to-indigo-600 text-white shadow-md shadow-indigo-600/20 hover:shadow-lg hover:shadow-indigo-600/30 focus:ring-indigo-500 border border-indigo-500/50',
+        'bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-xs focus:ring-blue-500 border border-blue-700/30',
       gradient:
-        'bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:opacity-95 text-white shadow-md shadow-indigo-600/25 hover:shadow-glow-violet focus:ring-indigo-500 border border-white/20',
+        'bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-sm shadow-blue-600/20 focus:ring-blue-500 border border-blue-700/30',
       secondary:
-        'bg-white hover:bg-slate-50/90 text-slate-800 border border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-xs focus:ring-slate-300',
+        'bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-xs focus:ring-slate-300',
       outline:
-        'bg-transparent hover:bg-violet-50/60 text-violet-700 border border-violet-200 hover:border-violet-300 focus:ring-violet-400',
+        'bg-transparent hover:bg-slate-50 text-slate-700 border border-slate-200 hover:border-slate-300 focus:ring-blue-400',
       ghost:
         'bg-transparent hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-transparent focus:ring-slate-300',
       danger:
-        'bg-rose-50 hover:bg-rose-100/80 text-rose-700 border border-rose-200 hover:border-rose-300 focus:ring-rose-500',
+        'bg-red-50 hover:bg-red-100/80 text-red-600 border border-red-200 hover:border-red-300 focus:ring-red-500',
     }[variant];
 
     const sizeStyles = {
-      sm: 'text-xs px-3.5 py-1.5 gap-1.5',
+      sm: 'text-xs px-3 py-1.5 gap-1.5',
       md: 'text-sm px-4 py-2 gap-2',
-      lg: 'text-base px-6 py-2.5 gap-2.5 font-bold',
+      lg: 'text-base px-5 py-2.5 gap-2.5 font-semibold',
     }[size];
 
     return (

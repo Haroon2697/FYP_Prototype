@@ -47,9 +47,9 @@ export const LandingPage: React.FC = () => {
       description:
         'Compiles high-resolution 1080p explainer videos with synchronized neural voiceovers, smooth cursor paths, and glowing bounding highlights.',
       icon: Video,
-      gradient: 'from-purple-500/15 to-pink-500/15',
-      iconColor: 'text-purple-600',
-      accentBorder: 'hover:border-purple-300',
+      gradient: 'from-blue-500/15 to-sky-500/15',
+      iconColor: 'text-blue-600',
+      accentBorder: 'hover:border-blue-300',
     },
   ];
 
