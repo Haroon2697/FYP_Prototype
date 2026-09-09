@@ -1,0 +1,2132 @@
+[
+  {
+    "id": "proj-linear-001",
+    "name": "Linear",
+    "url": "https://linear.app",
+    "domain": "linear.app",
+    "tagline": "The purpose-built tool for high-performance software engineering teams.",
+    "status": "Completed",
+    "createdAt": "2026-03-02T10:15:00Z",
+    "videoDuration": "01:18",
+    "workflowsCount": 3,
+    "targetAudience": "Technical Evaluators",
+    "focusAreas": ["Core Feature", "Onboarding", "Collaboration"],
+    "explanatoryScore": 0.96,
+    "summary": "Linear streamlines task tracking with keyboard-first navigation, automated cycle planning, and fast issue triage.",
+    "telemetry": {
+      "domNodesExplored": 1420,
+      "routesCrawled": 12,
+      "confidenceScore": 0.98,
+      "durationSeconds": 42,
+      "detectedTechStack": ["React", "Next.js", "GraphQL", "Tailwind CSS"]
+    },
+    "workflows": [
+      {
+        "id": "wf-lin-1",
+        "title": "Create Issue → Assign Priority → Link Cycle",
+        "description": "The primary interaction flow for engineering leads to quickly register backlog items, assign urgency levels, and allocate to the active sprint.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.96,
+        "estimatedDuration": "38s",
+        "isPrimary": true,
+        "stepsCount": 4,
+        "steps": [
+          {
+            "id": "step-lin-1-1",
+            "stepNumber": 1,
+            "action": "Trigger new issue shortcut or click 'New Issue' button",
+            "targetElement": "button[data-testid='btn-create-issue']",
+            "elementDescription": "Floating primary CTA button located in the global navigation bar",
+            "selectorType": "data-testid",
+            "importance": "Entrypoint for core task creation",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Linear / Active Cycle / Inbox",
+              "route": "https://linear.app/team/inbox",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 12,
+                "left": 80,
+                "width": 16,
+                "height": 7,
+                "label": "Button: New Issue (C)"
+              }
+            }
+          },
+          {
+            "id": "step-lin-1-2",
+            "stepNumber": 2,
+            "action": "Type title and markdown description in modal dialog",
+            "targetElement": "input[name='issue-title']",
+            "elementDescription": "Focused modal title input supporting markdown syntax and auto-mention",
+            "selectorType": "CSS",
+            "importance": "Payload entry for issue semantics",
+            "timestamp": "00:14",
+            "screenshotMockup": {
+              "pageTitle": "New Issue Modal Dialog",
+              "route": "https://linear.app/team/inbox#modal",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 28,
+                "left": 25,
+                "width": 50,
+                "height": 10,
+                "label": "Input: Issue Title"
+              }
+            }
+          },
+          {
+            "id": "step-lin-1-3",
+            "stepNumber": 3,
+            "action": "Set Priority to 'Urgent' via selector popover",
+            "targetElement": "div[data-menu='priority-dropdown']",
+            "elementDescription": "Priority picker widget with 4 levels (Low, Medium, High, Urgent)",
+            "selectorType": "data-testid",
+            "importance": "Critical routing metadata",
+            "timestamp": "00:22",
+            "screenshotMockup": {
+              "pageTitle": "Issue Properties Bar",
+              "route": "https://linear.app/team/inbox#modal",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 55,
+                "left": 30,
+                "width": 20,
+                "height": 8,
+                "label": "Select: Priority (Urgent)"
+              }
+            }
+          },
+          {
+            "id": "step-lin-1-4",
+            "stepNumber": 4,
+            "action": "Assign to 'Cycle 28' and submit issue",
+            "targetElement": "button[type='submit'][data-action='save-issue']",
+            "elementDescription": "Confirm action committing the issue to database and active sprint",
+            "selectorType": "data-testid",
+            "importance": "Final state transition confirming persistence",
+            "timestamp": "00:32",
+            "screenshotMockup": {
+              "pageTitle": "Save and Dispatch Confirmation",
+              "route": "https://linear.app/team/inbox#modal",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 78,
+                "left": 65,
+                "width": 25,
+                "height": 9,
+                "label": "Submit: Create & Link Cycle"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-lin-2",
+        "title": "Setup Automated Triage & Slack Notifications",
+        "description": "Configuring incoming webhook channels and SLA notification rules for unresolved customer bug reports.",
+        "category": "Integration",
+        "explanatoryScore": 0.89,
+        "estimatedDuration": "24s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-lin-2-1",
+            "stepNumber": 1,
+            "action": "Navigate to Settings → Workspace Integrations",
+            "targetElement": "nav a[href='/settings/integrations']",
+            "elementDescription": "Sidebar settings item for third-party connector ecosystem",
+            "selectorType": "CSS",
+            "importance": "Admin routing",
+            "timestamp": "00:05",
+            "screenshotMockup": {
+              "pageTitle": "Linear Settings / Integrations",
+              "route": "https://linear.app/settings/integrations",
+              "wireframeType": "settings",
+              "highlightBox": {
+                "top": 35,
+                "left": 5,
+                "width": 20,
+                "height": 8,
+                "label": "Nav: Integrations"
+              }
+            }
+          },
+          {
+            "id": "step-lin-2-2",
+            "stepNumber": 2,
+            "action": "Click 'Connect Slack' button and authorize team channel",
+            "targetElement": "button[data-integration='slack-connect']",
+            "elementDescription": "OAuth initiation button for Slack bot permissions",
+            "selectorType": "data-testid",
+            "importance": "OAuth authentication handshake",
+            "timestamp": "00:15",
+            "screenshotMockup": {
+              "pageTitle": "Integrations Directory",
+              "route": "https://linear.app/settings/integrations",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 42,
+                "left": 70,
+                "width": 18,
+                "height": 8,
+                "label": "Button: Connect Slack"
+              }
+            }
+          },
+          {
+            "id": "step-lin-2-3",
+            "stepNumber": 3,
+            "action": "Enable Triage Notification toggle for '#eng-incidents'",
+            "targetElement": "input[type='checkbox'][name='triage-toggle']",
+            "elementDescription": "Toggle switch activating immediate push events for unassigned bugs",
+            "selectorType": "CSS",
+            "importance": "Event dispatch rule trigger",
+            "timestamp": "00:22",
+            "screenshotMockup": {
+              "pageTitle": "Slack Channel Mapping Settings",
+              "route": "https://linear.app/settings/integrations/slack",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 60,
+                "left": 60,
+                "width": 12,
+                "height": 6,
+                "label": "Toggle: Push to #eng-incidents"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-lin-3",
+        "title": "Filter Roadmaps & Export Release Changelog",
+        "description": "Visualizing quarterly initiative progress bars and exporting customer-facing changelog summaries with one click.",
+        "category": "Analytics & Reports",
+        "explanatoryScore": 0.84,
+        "estimatedDuration": "20s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-lin-3-1",
+            "stepNumber": 1,
+            "action": "Open Roadmap View from global project explorer",
+            "targetElement": "a[data-testid='nav-roadmap']",
+            "elementDescription": "Nav link to high-level multi-team milestone timeline",
+            "selectorType": "data-testid",
+            "importance": "Initiative aggregation view",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Linear Roadmap Overview",
+              "route": "https://linear.app/team/roadmap",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 20,
+                "left": 5,
+                "width": 18,
+                "height": 6,
+                "label": "Nav: Roadmap"
+              }
+            }
+          },
+          {
+            "id": "step-lin-3-2",
+            "stepNumber": 2,
+            "action": "Apply filter: Status = 'Completed in Q1'",
+            "targetElement": "button[aria-label='Filter milestones']",
+            "elementDescription": "Multi-property filter bar on roadmap timeline",
+            "selectorType": "CSS",
+            "importance": "Temporal scoping",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "Roadmap Filter Controls",
+              "route": "https://linear.app/team/roadmap",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 15,
+                "left": 35,
+                "width": 22,
+                "height": 6,
+                "label": "Filter: Completed in Q1"
+              }
+            }
+          },
+          {
+            "id": "step-lin-3-3",
+            "stepNumber": 3,
+            "action": "Click 'Export Changelog' and select Markdown format",
+            "targetElement": "button[data-action='export-changelog']",
+            "elementDescription": "Dropdown button that converts shipped issues into public release notes",
+            "selectorType": "data-testid",
+            "importance": "Value synthesis & export",
+            "timestamp": "00:18",
+            "screenshotMockup": {
+              "pageTitle": "Changelog Export Dialog",
+              "route": "https://linear.app/team/roadmap",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 70,
+                "left": 65,
+                "width": 24,
+                "height": 8,
+                "label": "Action: Export Markdown"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "script": {
+      "tone": "professional",
+      "language": "English (US)",
+      "wordCount": 164,
+      "estimatedDuration": "01:18",
+      "approved": true,
+      "sentences": [
+        {
+          "id": "sent-1",
+          "timestamp": "00:00 - 00:12",
+          "fullText": "Linear empowers modern product teams to capture ideas, prioritize high-impact issues, and execute sprints with unmatched velocity.",
+          "tokens": [
+            { "text": "Linear empowers modern product teams to capture ideas, ", "isGrounded": false },
+            {
+              "text": "prioritize high-impact issues",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "div[data-menu='priority-dropdown']",
+                "targetLabel": "Priority Selector widget",
+                "pageUrl": "https://linear.app/team/inbox#modal",
+                "confidence": 0.98,
+                "domSelector": "div[data-menu='priority-dropdown']"
+              }
+            },
+            { "text": ", and execute sprints with unmatched velocity.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-2",
+          "timestamp": "00:12 - 00:28",
+          "fullText": "Whenever a new task emerges, simply hit keyboard shortcut C or click the New Issue button to open the instant composer.",
+          "tokens": [
+            { "text": "Whenever a new task emerges, simply hit keyboard shortcut C or click the ", "isGrounded": false },
+            {
+              "text": "New Issue button",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-testid='btn-create-issue']",
+                "targetLabel": "Primary action button: 'New Issue'",
+                "pageUrl": "https://linear.app/team/inbox",
+                "confidence": 0.99,
+                "domSelector": "button[data-testid='btn-create-issue']"
+              }
+            },
+            { "text": " to open the instant composer.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-3",
+          "timestamp": "00:28 - 00:46",
+          "fullText": "Type your markdown description and immediately tag urgency levels using the Priority selector dropdown.",
+          "tokens": [
+            { "text": "Type your markdown description and immediately tag urgency levels using the ", "isGrounded": false },
+            {
+              "text": "Priority selector dropdown",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "div[data-menu='priority-dropdown']",
+                "targetLabel": "Urgency rating menu item",
+                "pageUrl": "https://linear.app/team/inbox#modal",
+                "confidence": 0.96,
+                "domSelector": "div[data-menu='priority-dropdown']"
+              }
+            },
+            { "text": ".", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-4",
+          "timestamp": "00:46 - 01:02",
+          "fullText": "Link the deliverable directly to the active engineering cycle and push it straight into execution without context switching.",
+          "tokens": [
+            { "text": "Link the deliverable directly to the ", "isGrounded": false },
+            {
+              "text": "active engineering cycle",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[type='submit'][data-action='save-issue']",
+                "targetLabel": "Cycle linkage submit action",
+                "pageUrl": "https://linear.app/team/inbox#modal",
+                "confidence": 0.95,
+                "domSelector": "button[data-action='save-issue']"
+              }
+            },
+            { "text": " and push it straight into execution without context switching.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-5",
+          "timestamp": "01:02 - 01:18",
+          "fullText": "With automated Slack triage notifications and one-click changelog exports, your entire organization stays synchronized effortlessly.",
+          "tokens": [
+            { "text": "With automated ", "isGrounded": false },
+            {
+              "text": "Slack triage notifications",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "input[type='checkbox'][name='triage-toggle']",
+                "targetLabel": "Slack channel dispatch toggle",
+                "pageUrl": "https://linear.app/settings/integrations/slack",
+                "confidence": 0.94,
+                "domSelector": "input[name='triage-toggle']"
+              }
+            },
+            { "text": " and ", "isGrounded": false },
+            {
+              "text": "one-click changelog exports",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-action='export-changelog']",
+                "targetLabel": "Export release notes button",
+                "pageUrl": "https://linear.app/team/roadmap",
+                "confidence": 0.97,
+                "domSelector": "button[data-action='export-changelog']"
+              }
+            },
+            { "text": ", your entire organization stays synchronized effortlessly.", "isGrounded": false }
+          ]
+        }
+      ]
+    },
+    "video": {
+      "title": "Linear: Fast Backlog Triage & Sprint Velocity Explainer",
+      "aspectRatio": "16:9",
+      "resolution": "1080p 60fps",
+      "durationSeconds": 78,
+      "voiceoverModel": "ElevenLabs Studio / Adam (Natural SaaS Voice)",
+      "scenes": [
+        {
+          "id": "sc-1",
+          "startTime": 0,
+          "endTime": 12,
+          "title": "Overview & High Velocity Workflow",
+          "narration": "Linear empowers modern product teams to capture ideas and execute sprints with unmatched velocity.",
+          "sceneType": "intro"
+        },
+        {
+          "id": "sc-2",
+          "startTime": 12,
+          "endTime": 28,
+          "title": "Triggering 'New Issue' Dialog",
+          "narration": "Click the New Issue button or use hotkey 'C' to summon the rapid task creator.",
+          "workflowStepId": "step-lin-1-1",
+          "sceneType": "step",
+          "highlightLabel": "button[data-testid='btn-create-issue']"
+        },
+        {
+          "id": "sc-3",
+          "startTime": 28,
+          "endTime": 46,
+          "title": "Setting Priority & Urgency Levels",
+          "narration": "Type your markdown description and immediately tag urgency levels using the Priority selector dropdown.",
+          "workflowStepId": "step-lin-1-3",
+          "sceneType": "step",
+          "highlightLabel": "div[data-menu='priority-dropdown']"
+        },
+        {
+          "id": "sc-4",
+          "startTime": 46,
+          "endTime": 62,
+          "title": "Dispatching to Active Sprint Cycle",
+          "narration": "Link the deliverable directly to the active engineering cycle and push it straight into execution.",
+          "workflowStepId": "step-lin-1-4",
+          "sceneType": "step",
+          "highlightLabel": "button[data-action='save-issue']"
+        },
+        {
+          "id": "sc-5",
+          "startTime": 62,
+          "endTime": 78,
+          "title": "Team Synchronization & Changelog Export",
+          "narration": "Automated notifications keep engineering in sync without interruption.",
+          "sceneType": "outro"
+        }
+      ]
+    }
+  },
+  {
+    "id": "proj-supabase-002",
+    "name": "Supabase",
+    "url": "https://supabase.com",
+    "domain": "supabase.com",
+    "tagline": "The open source Firebase alternative with dedicated Postgres and Auth.",
+    "status": "Completed",
+    "createdAt": "2026-03-01T14:22:00Z",
+    "videoDuration": "01:05",
+    "workflowsCount": 3,
+    "targetAudience": "Technical Evaluators",
+    "focusAreas": ["Core Feature", "Admin & Settings", "Security"],
+    "explanatoryScore": 0.98,
+    "summary": "Supabase provides an instant Postgres database, row-level security visual policies, and automatic REST/GraphQL APIs.",
+    "telemetry": {
+      "domNodesExplored": 1890,
+      "routesCrawled": 16,
+      "confidenceScore": 0.99,
+      "durationSeconds": 54,
+      "detectedTechStack": ["React", "PostgreSQL", "Go", "Docker"]
+    },
+    "workflows": [
+      {
+        "id": "wf-sup-1",
+        "title": "Generate Relational Table → Enable Row Level Security (RLS)",
+        "description": "Building a normalized table in the visual schema editor and applying granular authorization policies for authenticated users.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.98,
+        "estimatedDuration": "34s",
+        "isPrimary": true,
+        "stepsCount": 4,
+        "steps": [
+          {
+            "id": "step-sup-1-1",
+            "stepNumber": 1,
+            "action": "Click 'New Table' in Table Editor sidebar",
+            "targetElement": "button[data-testid='btn-create-table']",
+            "elementDescription": "Primary button inside visual database designer",
+            "selectorType": "data-testid",
+            "importance": "Schema generation kickoff",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Supabase Table Editor",
+              "route": "https://supabase.com/dashboard/project/db/tables",
+              "wireframeType": "table",
+              "highlightBox": {
+                "top": 15,
+                "left": 10,
+                "width": 18,
+                "height": 7,
+                "label": "Button: New Table"
+              }
+            }
+          },
+          {
+            "id": "step-sup-1-2",
+            "stepNumber": 2,
+            "action": "Define table name 'profiles' and add foreign key column",
+            "targetElement": "input[name='table_name']",
+            "elementDescription": "Form input specifying table identifier and UUID relationships",
+            "selectorType": "CSS",
+            "importance": "DDL statement construction",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "Create Table Drawer",
+              "route": "https://supabase.com/dashboard/project/db/tables#drawer",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 25,
+                "left": 55,
+                "width": 38,
+                "height": 9,
+                "label": "Input: Name 'profiles'"
+              }
+            }
+          },
+          {
+            "id": "step-sup-1-3",
+            "stepNumber": 3,
+            "action": "Check 'Enable Row Level Security (RLS)' checkbox",
+            "targetElement": "input#enable-rls-checkbox",
+            "elementDescription": "Security toggle enforcing Postgres row-level isolation policies",
+            "selectorType": "CSS",
+            "importance": "Database security enforcement",
+            "timestamp": "00:20",
+            "screenshotMockup": {
+              "pageTitle": "RLS Configuration Toggle",
+              "route": "https://supabase.com/dashboard/project/db/tables#drawer",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 45,
+                "left": 55,
+                "width": 38,
+                "height": 8,
+                "label": "Checkbox: Enable RLS"
+              }
+            }
+          },
+          {
+            "id": "step-sup-1-4",
+            "stepNumber": 4,
+            "action": "Select template 'Enable read access for authenticated users only'",
+            "targetElement": "div[data-policy-template='auth-read-only']",
+            "elementDescription": "Standard pre-vetted SQL policy template generator",
+            "selectorType": "data-testid",
+            "importance": "Policy synthesis",
+            "timestamp": "00:28",
+            "screenshotMockup": {
+              "pageTitle": "Security Policy Template Picker",
+              "route": "https://supabase.com/dashboard/project/db/tables#drawer",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 62,
+                "left": 55,
+                "width": 38,
+                "height": 12,
+                "label": "Template: Auth Read Access"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-sup-2",
+        "title": "Configure Social Auth Provider & Callback URL",
+        "description": "Setting up GitHub/Google OAuth keys, redirect endpoints, and JWT lifespan configuration.",
+        "category": "Admin & Settings",
+        "explanatoryScore": 0.91,
+        "estimatedDuration": "22s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-sup-2-1",
+            "stepNumber": 1,
+            "action": "Navigate to Authentication → Providers",
+            "targetElement": "a[href='/project/auth/providers']",
+            "elementDescription": "Navigation tab for OAuth provider list",
+            "selectorType": "CSS",
+            "importance": "Auth configuration navigation",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Auth Providers Directory",
+              "route": "https://supabase.com/dashboard/project/auth/providers",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 20,
+                "left": 5,
+                "width": 20,
+                "height": 6,
+                "label": "Nav: Auth Providers"
+              }
+            }
+          },
+          {
+            "id": "step-sup-2-2",
+            "stepNumber": 2,
+            "action": "Expand 'GitHub' accordion and toggle Enabled",
+            "targetElement": "div#provider-github-accordion",
+            "elementDescription": "GitHub OAuth settings container",
+            "selectorType": "CSS",
+            "importance": "Provider selection",
+            "timestamp": "00:11",
+            "screenshotMockup": {
+              "pageTitle": "GitHub Provider Settings",
+              "route": "https://supabase.com/dashboard/project/auth/providers",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 35,
+                "left": 25,
+                "width": 60,
+                "height": 10,
+                "label": "Toggle: GitHub Provider"
+              }
+            }
+          },
+          {
+            "id": "step-sup-2-3",
+            "stepNumber": 3,
+            "action": "Paste Client ID & Secret, then save redirect URI",
+            "targetElement": "button[data-action='save-auth-provider']",
+            "elementDescription": "Credentials confirmation button",
+            "selectorType": "data-testid",
+            "importance": "Credentials persistence",
+            "timestamp": "00:18",
+            "screenshotMockup": {
+              "pageTitle": "Save Auth Secrets",
+              "route": "https://supabase.com/dashboard/project/auth/providers",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 70,
+                "left": 65,
+                "width": 20,
+                "height": 8,
+                "label": "Button: Save Provider"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-sup-3",
+        "title": "Deploy Realtime Edge Function via Web CLI",
+        "description": "Creating and testing a serverless TypeScript edge function listening to database insert webhooks.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.85,
+        "estimatedDuration": "18s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-sup-3-1",
+            "stepNumber": 1,
+            "action": "Open Edge Functions tab",
+            "targetElement": "a[href='/project/functions']",
+            "elementDescription": "Nav tab for serverless functions",
+            "selectorType": "CSS",
+            "importance": "Functions list",
+            "timestamp": "00:03",
+            "screenshotMockup": {
+              "pageTitle": "Edge Functions Console",
+              "route": "https://supabase.com/dashboard/project/functions",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 15,
+                "left": 5,
+                "width": 20,
+                "height": 6,
+                "label": "Nav: Edge Functions"
+              }
+            }
+          },
+          {
+            "id": "step-sup-3-2",
+            "stepNumber": 2,
+            "action": "Click 'New Function' and select Hello World template",
+            "targetElement": "button[data-testid='btn-create-function']",
+            "elementDescription": "Function scaffold modal opener",
+            "selectorType": "data-testid",
+            "importance": "Function scaffolding",
+            "timestamp": "00:09",
+            "screenshotMockup": {
+              "pageTitle": "Function Template Picker",
+              "route": "https://supabase.com/dashboard/project/functions#modal",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 40,
+                "left": 30,
+                "width": 40,
+                "height": 10,
+                "label": "Template: Deno Edge Function"
+              }
+            }
+          },
+          {
+            "id": "step-sup-3-3",
+            "stepNumber": 3,
+            "action": "Click Deploy to spin up global edge endpoint",
+            "targetElement": "button[data-action='deploy-function']",
+            "elementDescription": "Live deployment triggering Deno subhosting rollout",
+            "selectorType": "data-testid",
+            "importance": "Production activation",
+            "timestamp": "00:16",
+            "screenshotMockup": {
+              "pageTitle": "Deployment Progress",
+              "route": "https://supabase.com/dashboard/project/functions",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 65,
+                "left": 70,
+                "width": 18,
+                "height": 8,
+                "label": "Button: Deploy Function"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "script": {
+      "tone": "technical",
+      "language": "English (US)",
+      "wordCount": 142,
+      "estimatedDuration": "01:05",
+      "approved": true,
+      "sentences": [
+        {
+          "id": "sent-sup-1",
+          "timestamp": "00:00 - 00:15",
+          "fullText": "Supabase brings the full power of PostgreSQL to your browser with an interactive table designer and granular security rules.",
+          "tokens": [
+            { "text": "Supabase brings the full power of PostgreSQL to your browser with an ", "isGrounded": false },
+            {
+              "text": "interactive table designer",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-testid='btn-create-table']",
+                "targetLabel": "Table editor launch button",
+                "pageUrl": "https://supabase.com/dashboard/project/db/tables",
+                "confidence": 0.99,
+                "domSelector": "button[data-testid='btn-create-table']"
+              }
+            },
+            { "text": " and granular security rules.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-sup-2",
+          "timestamp": "00:15 - 00:32",
+          "fullText": "In seconds, you can create a new profiles table and instantly safeguard user records by checking Enable Row Level Security.",
+          "tokens": [
+            { "text": "In seconds, you can create a new profiles table and instantly safeguard user records by checking ", "isGrounded": false },
+            {
+              "text": "Enable Row Level Security",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "input#enable-rls-checkbox",
+                "targetLabel": "Row Level Security toggle",
+                "pageUrl": "https://supabase.com/dashboard/project/db/tables#drawer",
+                "confidence": 0.98,
+                "domSelector": "input#enable-rls-checkbox"
+              }
+            },
+            { "text": ".", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-sup-3",
+          "timestamp": "00:32 - 00:48",
+          "fullText": "Attach automated SQL policies to ensure authenticated users only read their own private data.",
+          "tokens": [
+            { "text": "Attach automated SQL policies to ensure ", "isGrounded": false },
+            {
+              "text": "authenticated users only read their own private data",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "div[data-policy-template='auth-read-only']",
+                "targetLabel": "Authentication SQL policy template",
+                "pageUrl": "https://supabase.com/dashboard/project/db/tables#drawer",
+                "confidence": 0.97,
+                "domSelector": "div[data-policy-template='auth-read-only']"
+              }
+            },
+            { "text": ".", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-sup-4",
+          "timestamp": "00:48 - 01:05",
+          "fullText": "Tie in turnkey social authentication and deploy serverless Edge Functions to complete a production-ready stack.",
+          "tokens": [
+            { "text": "Tie in turnkey ", "isGrounded": false },
+            {
+              "text": "social authentication",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "div#provider-github-accordion",
+                "targetLabel": "OAuth provider settings accordion",
+                "pageUrl": "https://supabase.com/dashboard/project/auth/providers",
+                "confidence": 0.95,
+                "domSelector": "div#provider-github-accordion"
+              }
+            },
+            { "text": " and deploy serverless ", "isGrounded": false },
+            {
+              "text": "Edge Functions",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-action='deploy-function']",
+                "targetLabel": "Deploy Edge Function button",
+                "pageUrl": "https://supabase.com/dashboard/project/functions",
+                "confidence": 0.96,
+                "domSelector": "button[data-action='deploy-function']"
+              }
+            },
+            { "text": " to complete a production-ready stack.", "isGrounded": false }
+          ]
+        }
+      ]
+    },
+    "video": {
+      "title": "Supabase: Postgres Schema & RLS Security Deepdive",
+      "aspectRatio": "16:9",
+      "resolution": "1080p 60fps",
+      "durationSeconds": 65,
+      "voiceoverModel": "Gemini Speech Engine / Neural Tech Voice",
+      "scenes": [
+        {
+          "id": "sc-sup-1",
+          "startTime": 0,
+          "endTime": 15,
+          "title": "Postgres Browser Studio",
+          "narration": "Supabase brings the full power of PostgreSQL to your browser with an interactive table designer.",
+          "sceneType": "intro"
+        },
+        {
+          "id": "sc-sup-2",
+          "startTime": 15,
+          "endTime": 32,
+          "title": "Table Creation & RLS Activation",
+          "narration": "In seconds, create a new table and instantly safeguard records by enabling Row Level Security.",
+          "workflowStepId": "step-sup-1-3",
+          "sceneType": "step",
+          "highlightLabel": "input#enable-rls-checkbox"
+        },
+        {
+          "id": "sc-sup-3",
+          "startTime": 32,
+          "endTime": 48,
+          "title": "Applying Auth Isolation Policies",
+          "narration": "Attach automated SQL policies to isolate tenant data safely.",
+          "workflowStepId": "step-sup-1-4",
+          "sceneType": "step",
+          "highlightLabel": "div[data-policy-template='auth-read-only']"
+        },
+        {
+          "id": "sc-sup-4",
+          "startTime": 48,
+          "endTime": 65,
+          "title": "Deploying Edge Functions & Wrapup",
+          "narration": "Complete your backend with low-latency edge compute deployed worldwide.",
+          "sceneType": "outro"
+        }
+      ]
+    }
+  },
+  {
+    "id": "proj-stripe-003",
+    "name": "Stripe",
+    "url": "https://stripe.com",
+    "domain": "stripe.com",
+    "tagline": "Financial infrastructure for the internet. Millions of businesses rely on Stripe.",
+    "status": "Completed",
+    "createdAt": "2026-02-28T08:45:00Z",
+    "videoDuration": "01:25",
+    "workflowsCount": 3,
+    "targetAudience": "Admins",
+    "focusAreas": ["Billing & Payments", "Core Feature", "Analytics & Reports"],
+    "explanatoryScore": 0.95,
+    "summary": "Stripe Billing automates recurring customer subscriptions, metered usage invoices, and intelligent dunning retries.",
+    "telemetry": {
+      "domNodesExplored": 2240,
+      "routesCrawled": 20,
+      "confidenceScore": 0.97,
+      "durationSeconds": 62,
+      "detectedTechStack": ["React", "Ruby", "Java", "Tailwind"]
+    },
+    "workflows": [
+      {
+        "id": "wf-str-1",
+        "title": "Create Recurring Price Tier → Embed Checkout Session",
+        "description": "Setting up SaaS product pricing models with trial periods and generating low-code Checkout links.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.95,
+        "estimatedDuration": "42s",
+        "isPrimary": true,
+        "stepsCount": 4,
+        "steps": [
+          {
+            "id": "step-str-1-1",
+            "stepNumber": 1,
+            "action": "Click 'Add Product' in Stripe Product Catalog",
+            "targetElement": "button[data-testid='btn-add-product']",
+            "elementDescription": "Primary button in products view",
+            "selectorType": "data-testid",
+            "importance": "Product setup initiation",
+            "timestamp": "00:05",
+            "screenshotMockup": {
+              "pageTitle": "Stripe / Product Catalog",
+              "route": "https://dashboard.stripe.com/products",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 14,
+                "left": 75,
+                "width": 18,
+                "height": 7,
+                "label": "Button: Add Product"
+              }
+            }
+          },
+          {
+            "id": "step-str-1-2",
+            "stepNumber": 2,
+            "action": "Set Name 'Pro Tier' and select Recurring billing model",
+            "targetElement": "input[name='product-name']",
+            "elementDescription": "Product naming and pricing model selector",
+            "selectorType": "CSS",
+            "importance": "Billing schema definition",
+            "timestamp": "00:15",
+            "screenshotMockup": {
+              "pageTitle": "Create Product Form",
+              "route": "https://dashboard.stripe.com/products/create",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 28,
+                "left": 25,
+                "width": 45,
+                "height": 9,
+                "label": "Input: Product Name"
+              }
+            }
+          },
+          {
+            "id": "step-str-1-3",
+            "stepNumber": 3,
+            "action": "Configure $49/month with 14-day free trial period",
+            "targetElement": "input[name='price-amount']",
+            "elementDescription": "Pricing unit currency and trial duration",
+            "selectorType": "CSS",
+            "importance": "Pricing terms declaration",
+            "timestamp": "00:25",
+            "screenshotMockup": {
+              "pageTitle": "Pricing Model Section",
+              "route": "https://dashboard.stripe.com/products/create",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 50,
+                "left": 25,
+                "width": 30,
+                "height": 8,
+                "label": "Input: $49.00 / month"
+              }
+            }
+          },
+          {
+            "id": "step-str-1-4",
+            "stepNumber": 4,
+            "action": "Generate Payment Link and copy embeddable iframe snippet",
+            "targetElement": "button[data-action='create-payment-link']",
+            "elementDescription": "One-click hosted checkout link generator",
+            "selectorType": "data-testid",
+            "importance": "Consumer payment entrypoint",
+            "timestamp": "00:36",
+            "screenshotMockup": {
+              "pageTitle": "Payment Link Generated",
+              "route": "https://dashboard.stripe.com/payment-links",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 68,
+                "left": 60,
+                "width": 26,
+                "height": 9,
+                "label": "Button: Copy Payment Link"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-str-2",
+        "title": "Configure Dunning & Automated Invoice Recovery",
+        "description": "Customizing smart Smart Retries with machine learning and automated customer card update reminders.",
+        "category": "Admin & Settings",
+        "explanatoryScore": 0.88,
+        "estimatedDuration": "26s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-str-2-1",
+            "stepNumber": 1,
+            "action": "Open Billing Settings → Subscriptions and Emails",
+            "targetElement": "a[href='/settings/billing/automatic']",
+            "elementDescription": "Settings submenu for churn reduction rules",
+            "selectorType": "CSS",
+            "importance": "Revenue recovery rules",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Stripe Billing Settings",
+              "route": "https://dashboard.stripe.com/settings/billing",
+              "wireframeType": "settings",
+              "highlightBox": {
+                "top": 25,
+                "left": 10,
+                "width": 22,
+                "height": 7,
+                "label": "Nav: Automatic Retries"
+              }
+            }
+          },
+          {
+            "id": "step-str-2-2",
+            "stepNumber": 2,
+            "action": "Toggle 'Smart Retries' powered by Stripe ML",
+            "targetElement": "input#smart-retries-toggle",
+            "elementDescription": "Machine learning card retry schedule toggle",
+            "selectorType": "CSS",
+            "importance": "Automated payment healing",
+            "timestamp": "00:14",
+            "screenshotMockup": {
+              "pageTitle": "Retry Rules Config",
+              "route": "https://dashboard.stripe.com/settings/billing",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 45,
+                "left": 65,
+                "width": 14,
+                "height": 7,
+                "label": "Toggle: Smart Retries"
+              }
+            }
+          },
+          {
+            "id": "step-str-2-3",
+            "stepNumber": 3,
+            "action": "Save custom reminder email schedule",
+            "targetElement": "button[data-action='save-dunning-policy']",
+            "elementDescription": "Persist churn prevention parameters",
+            "selectorType": "data-testid",
+            "importance": "Policy persistence",
+            "timestamp": "00:22",
+            "screenshotMockup": {
+              "pageTitle": "Confirm Recovery Schedule",
+              "route": "https://dashboard.stripe.com/settings/billing",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 75,
+                "left": 68,
+                "width": 20,
+                "height": 8,
+                "label": "Save Policy"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-str-3",
+        "title": "Export MRR Revenue Analytics to CSV",
+        "description": "Filtering monthly recurring revenue charts by currency and downloading investor-ready CSV exports.",
+        "category": "Analytics & Reports",
+        "explanatoryScore": 0.82,
+        "estimatedDuration": "17s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-str-3-1",
+            "stepNumber": 1,
+            "action": "Select Billing Analytics dashboard",
+            "targetElement": "a[href='/analytics/mrr']",
+            "elementDescription": "Financial health dashboard link",
+            "selectorType": "CSS",
+            "importance": "Analytics view entry",
+            "timestamp": "00:03",
+            "screenshotMockup": {
+              "pageTitle": "MRR Metrics Dashboard",
+              "route": "https://dashboard.stripe.com/analytics/mrr",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 15,
+                "left": 5,
+                "width": 18,
+                "height": 6,
+                "label": "Nav: MRR Analytics"
+              }
+            }
+          },
+          {
+            "id": "step-str-3-2",
+            "stepNumber": 2,
+            "action": "Set date range to 'Trailing 12 Months'",
+            "targetElement": "button[data-testid='date-range-picker']",
+            "elementDescription": "Temporal filter button",
+            "selectorType": "data-testid",
+            "importance": "Time range filter",
+            "timestamp": "00:09",
+            "screenshotMockup": {
+              "pageTitle": "Revenue Date Filter",
+              "route": "https://dashboard.stripe.com/analytics/mrr",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 15,
+                "left": 40,
+                "width": 22,
+                "height": 6,
+                "label": "Filter: Trailing 12M"
+              }
+            }
+          },
+          {
+            "id": "step-str-3-3",
+            "stepNumber": 3,
+            "action": "Click 'Export CSV' to download detailed breakdown",
+            "targetElement": "button[data-action='export-mrr-csv']",
+            "elementDescription": "Export action button",
+            "selectorType": "data-testid",
+            "importance": "Data download",
+            "timestamp": "00:15",
+            "screenshotMockup": {
+              "pageTitle": "Export Completed Dialog",
+              "route": "https://dashboard.stripe.com/analytics/mrr",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 55,
+                "left": 70,
+                "width": 18,
+                "height": 7,
+                "label": "Export CSV"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "script": {
+      "tone": "executive",
+      "language": "English (US)",
+      "wordCount": 170,
+      "estimatedDuration": "01:25",
+      "approved": true,
+      "sentences": [
+        {
+          "id": "sent-str-1",
+          "timestamp": "00:00 - 00:18",
+          "fullText": "Stripe Billing delivers resilient recurring subscription monetization with seamless checkout conversion and automated revenue recovery.",
+          "tokens": [
+            { "text": "Stripe Billing delivers resilient recurring subscription monetization with ", "isGrounded": false },
+            {
+              "text": "seamless checkout conversion",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-action='create-payment-link']",
+                "targetLabel": "Hosted payment link creator",
+                "pageUrl": "https://dashboard.stripe.com/payment-links",
+                "confidence": 0.97,
+                "domSelector": "button[data-action='create-payment-link']"
+              }
+            },
+            { "text": " and automated revenue recovery.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-str-2",
+          "timestamp": "00:18 - 00:38",
+          "fullText": "To launch a new recurring package, click Add Product and configure your tier name, billing intervals, and trial periods.",
+          "tokens": [
+            { "text": "To launch a new recurring package, click ", "isGrounded": false },
+            {
+              "text": "Add Product",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-testid='btn-add-product']",
+                "targetLabel": "New product trigger",
+                "pageUrl": "https://dashboard.stripe.com/products",
+                "confidence": 0.99,
+                "domSelector": "button[data-testid='btn-add-product']"
+              }
+            },
+            { "text": " and configure your tier name, billing intervals, and ", "isGrounded": false },
+            {
+              "text": "trial periods",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "input[name='price-amount']",
+                "targetLabel": "Trial duration configuration field",
+                "pageUrl": "https://dashboard.stripe.com/products/create",
+                "confidence": 0.94,
+                "domSelector": "input[name='price-amount']"
+              }
+            },
+            { "text": ".", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-str-3",
+          "timestamp": "00:38 - 01:00",
+          "fullText": "Stripe instantly compiles a secure hosted Payment Link that can be shared or embedded directly inside your web application.",
+          "tokens": [
+            { "text": "Stripe instantly compiles a secure hosted ", "isGrounded": false },
+            {
+              "text": "Payment Link",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-action='create-payment-link']",
+                "targetLabel": "Payment link action button",
+                "pageUrl": "https://dashboard.stripe.com/payment-links",
+                "confidence": 0.98,
+                "domSelector": "button[data-action='create-payment-link']"
+              }
+            },
+            { "text": " that can be shared or embedded directly inside your web application.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-str-4",
+          "timestamp": "01:00 - 01:25",
+          "fullText": "Machine-learning Smart Retries automatically reclaim failed transactions, while real-time MRR analytics keep your executive board informed.",
+          "tokens": [
+            { "text": "Machine-learning ", "isGrounded": false },
+            {
+              "text": "Smart Retries",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "input#smart-retries-toggle",
+                "targetLabel": "Smart retries toggle switch",
+                "pageUrl": "https://dashboard.stripe.com/settings/billing",
+                "confidence": 0.96,
+                "domSelector": "input#smart-retries-toggle"
+              }
+            },
+            { "text": " automatically reclaim failed transactions, while real-time ", "isGrounded": false },
+            {
+              "text": "MRR analytics",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-action='export-mrr-csv']",
+                "targetLabel": "Revenue analytics exporter",
+                "pageUrl": "https://dashboard.stripe.com/analytics/mrr",
+                "confidence": 0.95,
+                "domSelector": "button[data-action='export-mrr-csv']"
+              }
+            },
+            { "text": " keep your executive board informed.", "isGrounded": false }
+          ]
+        }
+      ]
+    },
+    "video": {
+      "title": "Stripe Billing: Recurring SaaS Monetization",
+      "aspectRatio": "16:9",
+      "resolution": "1080p 60fps",
+      "durationSeconds": 85,
+      "voiceoverModel": "ElevenLabs Studio / Rachel (Executive SaaS)",
+      "scenes": [
+        {
+          "id": "sc-str-1",
+          "startTime": 0,
+          "endTime": 18,
+          "title": "SaaS Monetization Architecture",
+          "narration": "Stripe Billing delivers resilient recurring subscription monetization with seamless checkout conversion.",
+          "sceneType": "intro"
+        },
+        {
+          "id": "sc-str-2",
+          "startTime": 18,
+          "endTime": 38,
+          "title": "Creating Product & Pricing Tiers",
+          "narration": "Launch recurring tiers with flexible intervals and customized trial periods.",
+          "workflowStepId": "step-str-1-1",
+          "sceneType": "step",
+          "highlightLabel": "button[data-testid='btn-add-product']"
+        },
+        {
+          "id": "sc-str-3",
+          "startTime": 38,
+          "endTime": 60,
+          "title": "Hosted Payment Link Generation",
+          "narration": "Generate low-code checkout links ready for immediate embedding.",
+          "workflowStepId": "step-str-1-4",
+          "sceneType": "step",
+          "highlightLabel": "button[data-action='create-payment-link']"
+        },
+        {
+          "id": "sc-str-4",
+          "startTime": 60,
+          "endTime": 85,
+          "title": "ML Smart Retries & Revenue Recovery",
+          "narration": "Reclaim churned revenue automatically with machine-learning dunning retries.",
+          "sceneType": "outro"
+        }
+      ]
+    }
+  },
+  {
+    "id": "proj-posthog-004",
+    "name": "PostHog",
+    "url": "https://posthog.com",
+    "domain": "posthog.com",
+    "tagline": "The single platform for product analytics, session replay, and feature flags.",
+    "status": "Completed",
+    "createdAt": "2026-02-25T16:10:00Z",
+    "videoDuration": "00:58",
+    "workflowsCount": 3,
+    "targetAudience": "Power users",
+    "focusAreas": ["Analytics & Reports", "Core Feature"],
+    "explanatoryScore": 0.94,
+    "summary": "PostHog traces end-to-end user journeys, analyzes multi-step conversion funnels, and ties drop-offs to exact session replays.",
+    "telemetry": {
+      "domNodesExplored": 1650,
+      "routesCrawled": 14,
+      "confidenceScore": 0.96,
+      "durationSeconds": 48,
+      "detectedTechStack": ["React", "Python", "ClickHouse", "Tailwind"]
+    },
+    "workflows": [
+      {
+        "id": "wf-ph-1",
+        "title": "Define Conversion Funnel → Filter Cohort Drop-off",
+        "description": "Constructing a 4-step signup-to-activation funnel and inspecting exact user drop-off bottlenecks.",
+        "category": "Analytics & Reports",
+        "explanatoryScore": 0.94,
+        "estimatedDuration": "28s",
+        "isPrimary": true,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-ph-1-1",
+            "stepNumber": 1,
+            "action": "Click 'New Insight' → Select 'Funnel' visualization",
+            "targetElement": "button[data-attr='new-insight-funnel']",
+            "elementDescription": "Insight builder mode switcher",
+            "selectorType": "data-testid",
+            "importance": "Analytics computation mode",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "PostHog Insights Builder",
+              "route": "https://us.posthog.com/insights/new",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 12,
+                "left": 20,
+                "width": 18,
+                "height": 7,
+                "label": "Button: Funnel Insight"
+              }
+            }
+          },
+          {
+            "id": "step-ph-1-2",
+            "stepNumber": 2,
+            "action": "Add steps: Pageview → Sign Up → Workspace Created",
+            "targetElement": "div[data-attr='funnel-step-picker']",
+            "elementDescription": "Multi-event timeline filter selector",
+            "selectorType": "data-testid",
+            "importance": "Event sequence pipeline",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "Funnel Steps Configuration",
+              "route": "https://us.posthog.com/insights/new",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 35,
+                "left": 15,
+                "width": 55,
+                "height": 14,
+                "label": "Events: 3-step sequence"
+              }
+            }
+          },
+          {
+            "id": "step-ph-1-3",
+            "stepNumber": 3,
+            "action": "Click drop-off bar to inspect associated Session Replays",
+            "targetElement": "rect[data-funnel-bar='dropoff-step-2']",
+            "elementDescription": "Interactive SVG bar linking quantitative analytics to qualitative video recording",
+            "selectorType": "CSS",
+            "importance": "Causal evidence linking",
+            "timestamp": "00:22",
+            "screenshotMockup": {
+              "pageTitle": "Conversion Funnel Chart",
+              "route": "https://us.posthog.com/insights/new",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 55,
+                "left": 45,
+                "width": 20,
+                "height": 22,
+                "label": "Click Drop-off: View Replays"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-ph-2",
+        "title": "Inspect User Session Replay with DOM Event Timeline",
+        "description": "Playing back high-fidelity DOM session recordings and identifying console error spikes.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.92,
+        "estimatedDuration": "20s",
+        "isPrimary": false,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-ph-2-1",
+            "stepNumber": 1,
+            "action": "Navigate to Session Recordings",
+            "targetElement": "a[data-attr='nav-recordings']",
+            "elementDescription": "Session replay explorer",
+            "selectorType": "data-testid",
+            "importance": "Replay directory entry",
+            "timestamp": "00:03",
+            "screenshotMockup": {
+              "pageTitle": "Session Recordings List",
+              "route": "https://us.posthog.com/replay",
+              "wireframeType": "table",
+              "highlightBox": {
+                "top": 15,
+                "left": 5,
+                "width": 20,
+                "height": 6,
+                "label": "Nav: Session Recordings"
+              }
+            }
+          },
+          {
+            "id": "step-ph-2-2",
+            "stepNumber": 2,
+            "action": "Filter sessions with Rage Clicks and Uncaught Exceptions",
+            "targetElement": "input#filter-rageclicks",
+            "elementDescription": "Friction indicator filter",
+            "selectorType": "CSS",
+            "importance": "High-friction filtering",
+            "timestamp": "00:09",
+            "screenshotMockup": {
+              "pageTitle": "Filter Friction Events",
+              "route": "https://us.posthog.com/replay",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 20,
+                "left": 30,
+                "width": 25,
+                "height": 7,
+                "label": "Filter: Rage Clicks"
+              }
+            }
+          },
+          {
+            "id": "step-ph-2-3",
+            "stepNumber": 3,
+            "action": "Play replay with synchronized console logs timeline",
+            "targetElement": "div.player-controls-scrubber",
+            "elementDescription": "Replay scrub bar and event stream",
+            "selectorType": "CSS",
+            "importance": "Session inspection",
+            "timestamp": "00:16",
+            "screenshotMockup": {
+              "pageTitle": "Session Player Canvas",
+              "route": "https://us.posthog.com/replay/session-102",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 60,
+                "left": 20,
+                "width": 60,
+                "height": 18,
+                "label": "Replay Player: Timeline"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-ph-3",
+        "title": "Create Custom Dashboard Widget & Share Public Link",
+        "description": "Pinning conversion graphs into a team dashboard and generating password-protected executive share links.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.86,
+        "estimatedDuration": "15s",
+        "isPrimary": false,
+        "stepsCount": 2,
+        "steps": [
+          {
+            "id": "step-ph-3-1",
+            "stepNumber": 1,
+            "action": "Click 'Add to Dashboard' on Funnel Insight",
+            "targetElement": "button[data-attr='save-to-dashboard']",
+            "elementDescription": "Dashboard pinning button",
+            "selectorType": "data-testid",
+            "importance": "Widget pinning",
+            "timestamp": "00:05",
+            "screenshotMockup": {
+              "pageTitle": "Insight Save Menu",
+              "route": "https://us.posthog.com/insights/101",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 15,
+                "left": 75,
+                "width": 20,
+                "height": 7,
+                "label": "Save to Dashboard"
+              }
+            }
+          },
+          {
+            "id": "step-ph-3-2",
+            "stepNumber": 2,
+            "action": "Toggle 'Public Share Link' and copy secure token URL",
+            "targetElement": "button[data-action='generate-public-url']",
+            "elementDescription": "Public share URL generator",
+            "selectorType": "data-testid",
+            "importance": "Executive sharing",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "Share Settings Dialog",
+              "route": "https://us.posthog.com/dashboard/growth",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 50,
+                "left": 60,
+                "width": 25,
+                "height": 8,
+                "label": "Copy Public Link"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "script": {
+      "tone": "friendly",
+      "language": "English (US)",
+      "wordCount": 128,
+      "estimatedDuration": "00:58",
+      "approved": true,
+      "sentences": [
+        {
+          "id": "sent-ph-1",
+          "timestamp": "00:00 - 00:15",
+          "fullText": "PostHog helps you understand how users genuinely navigate your product by combining visual funnels with real session replays.",
+          "tokens": [
+            { "text": "PostHog helps you understand how users genuinely navigate your product by combining ", "isGrounded": false },
+            {
+              "text": "visual funnels",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-attr='new-insight-funnel']",
+                "targetLabel": "Funnel Insight builder button",
+                "pageUrl": "https://us.posthog.com/insights/new",
+                "confidence": 0.98,
+                "domSelector": "button[data-attr='new-insight-funnel']"
+              }
+            },
+            { "text": " with real session replays.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-ph-2",
+          "timestamp": "00:15 - 00:32",
+          "fullText": "Assemble multi-step conversion paths with a few clicks to reveal precisely where prospective signups lose momentum.",
+          "tokens": [
+            { "text": "Assemble ", "isGrounded": false },
+            {
+              "text": "multi-step conversion paths",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "div[data-attr='funnel-step-picker']",
+                "targetLabel": "Funnel step sequence config",
+                "pageUrl": "https://us.posthog.com/insights/new",
+                "confidence": 0.96,
+                "domSelector": "div[data-attr='funnel-step-picker']"
+              }
+            },
+            { "text": " with a few clicks to reveal precisely where prospective signups lose momentum.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-ph-3",
+          "timestamp": "00:32 - 00:58",
+          "fullText": "Best of all, click directly on any drop-off bar to watch the exact session replay and diagnose UX hurdles instantly.",
+          "tokens": [
+            { "text": "Best of all, click directly on any ", "isGrounded": false },
+            {
+              "text": "drop-off bar",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "rect[data-funnel-bar='dropoff-step-2']",
+                "targetLabel": "Dropoff graph bar link",
+                "pageUrl": "https://us.posthog.com/insights/new",
+                "confidence": 0.99,
+                "domSelector": "rect[data-funnel-bar='dropoff-step-2']"
+              }
+            },
+            { "text": " to watch the exact ", "isGrounded": false },
+            {
+              "text": "session replay",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "a[data-attr='nav-recordings']",
+                "targetLabel": "Session replay explorer link",
+                "pageUrl": "https://us.posthog.com/replay",
+                "confidence": 0.94,
+                "domSelector": "a[data-attr='nav-recordings']"
+              }
+            },
+            { "text": " and diagnose UX hurdles instantly.", "isGrounded": false }
+          ]
+        }
+      ]
+    },
+    "video": {
+      "title": "PostHog: Conversion Funnels & Qualitative Replays",
+      "aspectRatio": "16:9",
+      "resolution": "1080p 60fps",
+      "durationSeconds": 58,
+      "voiceoverModel": "Gemini Speech Engine / Friendly Product Guide",
+      "scenes": [
+        {
+          "id": "sc-ph-1",
+          "startTime": 0,
+          "endTime": 15,
+          "title": "Product Journey Discovery",
+          "narration": "PostHog helps you understand how users navigate your product.",
+          "sceneType": "intro"
+        },
+        {
+          "id": "sc-ph-2",
+          "startTime": 15,
+          "endTime": 32,
+          "title": "Configuring Conversion Steps",
+          "narration": "Assemble multi-step conversion paths with a few clicks.",
+          "workflowStepId": "step-ph-1-2",
+          "sceneType": "step",
+          "highlightLabel": "div[data-attr='funnel-step-picker']"
+        },
+        {
+          "id": "sc-ph-3",
+          "startTime": 32,
+          "endTime": 58,
+          "title": "Connecting Drops to Session Video",
+          "narration": "Click drop-off bars to watch real session video and eradicate friction.",
+          "workflowStepId": "step-ph-1-3",
+          "sceneType": "step",
+          "highlightLabel": "rect[data-funnel-bar='dropoff-step-2']"
+        }
+      ]
+    }
+  },
+  {
+    "id": "proj-cal-005",
+    "name": "Cal.com",
+    "url": "https://cal.com",
+    "domain": "cal.com",
+    "tagline": "Open source scheduling infrastructure for everyone.",
+    "status": "Completed",
+    "createdAt": "2026-02-20T11:30:00Z",
+    "videoDuration": "00:48",
+    "workflowsCount": 2,
+    "targetAudience": "New users",
+    "focusAreas": ["Onboarding", "Core Feature"],
+    "explanatoryScore": 0.93,
+    "summary": "Cal.com automates booking links, multi-calendar conflict detection, and team round-robin routing.",
+    "telemetry": {
+      "domNodesExplored": 1120,
+      "routesCrawled": 9,
+      "confidenceScore": 0.95,
+      "durationSeconds": 36,
+      "detectedTechStack": ["Next.js", "Prisma", "Tailwind CSS"]
+    },
+    "workflows": [
+      {
+        "id": "wf-cal-1",
+        "title": "Setup Event Type → Connect Google Calendar & Buffer Times",
+        "description": "Configuring a 30-minute introductory meeting with automatic 10-minute rest buffers and time zone detection.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.93,
+        "estimatedDuration": "28s",
+        "isPrimary": true,
+        "stepsCount": 3,
+        "steps": [
+          {
+            "id": "step-cal-1-1",
+            "stepNumber": 1,
+            "action": "Click 'New Event Type' on main schedule dashboard",
+            "targetElement": "button[data-testid='btn-new-event-type']",
+            "elementDescription": "Primary button for scheduling link creation",
+            "selectorType": "data-testid",
+            "importance": "Event type creation trigger",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Cal.com Event Types",
+              "route": "https://app.cal.com/event-types",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 14,
+                "left": 75,
+                "width": 20,
+                "height": 7,
+                "label": "Button: New Event Type"
+              }
+            }
+          },
+          {
+            "id": "step-cal-1-2",
+            "stepNumber": 2,
+            "action": "Set Duration: 30 minutes, Title: 'Product Intro Call'",
+            "targetElement": "input[name='event-title']",
+            "elementDescription": "Event details title input",
+            "selectorType": "CSS",
+            "importance": "Meeting duration specification",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "Event Type Settings",
+              "route": "https://app.cal.com/event-types/create",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 28,
+                "left": 25,
+                "width": 50,
+                "height": 8,
+                "label": "Input: 30 min Intro Call"
+              }
+            }
+          },
+          {
+            "id": "step-cal-1-3",
+            "stepNumber": 3,
+            "action": "Toggle 'Add 10-minute buffer time after events'",
+            "targetElement": "input#buffer-time-toggle",
+            "elementDescription": "Rest interval buffer toggle switch",
+            "selectorType": "CSS",
+            "importance": "Calendar conflict protection",
+            "timestamp": "00:20",
+            "screenshotMockup": {
+              "pageTitle": "Advanced Availability Settings",
+              "route": "https://app.cal.com/event-types/create",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 55,
+                "left": 30,
+                "width": 45,
+                "height": 8,
+                "label": "Toggle: 10m Buffer"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-cal-2",
+        "title": "Configure Round-Robin Team Routing & Stripe Deposit",
+        "description": "Distributing client demo bookings fairly across available sales account executives.",
+        "category": "Admin & Settings",
+        "explanatoryScore": 0.87,
+        "estimatedDuration": "20s",
+        "isPrimary": false,
+        "stepsCount": 2,
+        "steps": [
+          {
+            "id": "step-cal-2-1",
+            "stepNumber": 1,
+            "action": "Switch to Team Event and enable Round-Robin assignment",
+            "targetElement": "select#routing-assignment-type",
+            "elementDescription": "Team distribution algorithm selector",
+            "selectorType": "CSS",
+            "importance": "Team routing",
+            "timestamp": "00:06",
+            "screenshotMockup": {
+              "pageTitle": "Team Assignment Rules",
+              "route": "https://app.cal.com/teams/sales",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 30,
+                "left": 35,
+                "width": 35,
+                "height": 8,
+                "label": "Select: Round Robin"
+              }
+            }
+          },
+          {
+            "id": "step-cal-2-2",
+            "stepNumber": 2,
+            "action": "Save configuration and copy personalized booking link",
+            "targetElement": "button[data-action='copy-booking-url']",
+            "elementDescription": "Public booking URL copy action",
+            "selectorType": "data-testid",
+            "importance": "Link sharing",
+            "timestamp": "00:15",
+            "screenshotMockup": {
+              "pageTitle": "Event Created Successfully",
+              "route": "https://app.cal.com/event-types",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 60,
+                "left": 60,
+                "width": 25,
+                "height": 8,
+                "label": "Copy Booking Link"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "script": {
+      "tone": "friendly",
+      "language": "English (US)",
+      "wordCount": 110,
+      "estimatedDuration": "00:48",
+      "approved": true,
+      "sentences": [
+        {
+          "id": "sent-cal-1",
+          "timestamp": "00:00 - 00:16",
+          "fullText": "Cal.com takes the friction out of meeting coordination by linking directly with your calendar and personal availability.",
+          "tokens": [
+            { "text": "Cal.com takes the friction out of meeting coordination by linking directly with your calendar and ", "isGrounded": false },
+            {
+              "text": "personal availability",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-testid='btn-new-event-type']",
+                "targetLabel": "New event trigger",
+                "pageUrl": "https://app.cal.com/event-types",
+                "confidence": 0.96,
+                "domSelector": "button[data-testid='btn-new-event-type']"
+              }
+            },
+            { "text": ".", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-cal-2",
+          "timestamp": "00:16 - 00:32",
+          "fullText": "Set up customized event types with flexible durations and automated buffer times between successive calls.",
+          "tokens": [
+            { "text": "Set up customized ", "isGrounded": false },
+            {
+              "text": "event types",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "input[name='event-title']",
+                "targetLabel": "Event title and parameters",
+                "pageUrl": "https://app.cal.com/event-types/create",
+                "confidence": 0.98,
+                "domSelector": "input[name='event-title']"
+              }
+            },
+            { "text": " with flexible durations and ", "isGrounded": false },
+            {
+              "text": "automated buffer times",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "input#buffer-time-toggle",
+                "targetLabel": "Buffer intervals switch",
+                "pageUrl": "https://app.cal.com/event-types/create",
+                "confidence": 0.95,
+                "domSelector": "input#buffer-time-toggle"
+              }
+            },
+            { "text": " between successive calls.", "isGrounded": false }
+          ]
+        },
+        {
+          "id": "sent-cal-3",
+          "timestamp": "00:32 - 00:48",
+          "fullText": "Share your link effortlessly or embed it directly into your website for instantaneous scheduling.",
+          "tokens": [
+            { "text": "Share your link effortlessly or ", "isGrounded": false },
+            {
+              "text": "embed it directly into your website",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-action='copy-booking-url']",
+                "targetLabel": "Share booking link action",
+                "pageUrl": "https://app.cal.com/event-types",
+                "confidence": 0.97,
+                "domSelector": "button[data-action='copy-booking-url']"
+              }
+            },
+            { "text": " for instantaneous scheduling.", "isGrounded": false }
+          ]
+        }
+      ]
+    },
+    "video": {
+      "title": "Cal.com: Frictionless Scheduling Workflows",
+      "aspectRatio": "16:9",
+      "resolution": "1080p 60fps",
+      "durationSeconds": 48,
+      "voiceoverModel": "ElevenLabs Studio / Adam (Natural SaaS Voice)",
+      "scenes": [
+        {
+          "id": "sc-cal-1",
+          "startTime": 0,
+          "endTime": 16,
+          "title": "Smart Calendar Integration",
+          "narration": "Cal.com takes friction out of meeting scheduling.",
+          "sceneType": "intro"
+        },
+        {
+          "id": "sc-cal-2",
+          "startTime": 16,
+          "endTime": 32,
+          "title": "Configuring Meeting Durations & Buffers",
+          "narration": "Setup custom event durations with automatic rest buffers.",
+          "workflowStepId": "step-cal-1-2",
+          "sceneType": "step",
+          "highlightLabel": "input[name='event-title']"
+        },
+        {
+          "id": "sc-cal-3",
+          "startTime": 32,
+          "endTime": 48,
+          "title": "Publishing Live Booking Link",
+          "narration": "Share your personalized link or embed anywhere.",
+          "sceneType": "outro"
+        }
+      ]
+    }
+  },
+  {
+    "id": "proj-resend-006",
+    "name": "Resend",
+    "url": "https://resend.com",
+    "domain": "resend.com",
+    "tagline": "Email for developers. The best way to reach humans instead of spam folders.",
+    "status": "Processing",
+    "createdAt": "2026-03-09T18:30:00Z",
+    "videoDuration": "--:--",
+    "workflowsCount": 2,
+    "targetAudience": "Technical Evaluators",
+    "focusAreas": ["Core Feature", "Integration"],
+    "explanatoryScore": 0.72,
+    "summary": "Exploring domain verification DNS records, API key issuance, and React Email component previews.",
+    "telemetry": {
+      "domNodesExplored": 640,
+      "routesCrawled": 5,
+      "confidenceScore": 0.81,
+      "durationSeconds": 18,
+      "detectedTechStack": ["Next.js", "React Email", "Tailwind"]
+    },
+    "workflows": [
+      {
+        "id": "wf-res-1",
+        "title": "Verify Sending Domain → Configure DKIM & SPF Records",
+        "description": "Adding DNS TXT and MX records to authorize sender reputation.",
+        "category": "Core Feature",
+        "explanatoryScore": 0.85,
+        "estimatedDuration": "20s",
+        "isPrimary": true,
+        "stepsCount": 2,
+        "steps": [
+          {
+            "id": "step-res-1-1",
+            "stepNumber": 1,
+            "action": "Click 'Add Domain' in Domains dashboard",
+            "targetElement": "button[data-testid='btn-add-domain']",
+            "elementDescription": "Domain registration modal opener",
+            "selectorType": "data-testid",
+            "importance": "Domain setup",
+            "timestamp": "00:04",
+            "screenshotMockup": {
+              "pageTitle": "Resend Domains List",
+              "route": "https://resend.com/domains",
+              "wireframeType": "table",
+              "highlightBox": {
+                "top": 14,
+                "left": 75,
+                "width": 18,
+                "height": 7,
+                "label": "Button: Add Domain"
+              }
+            }
+          },
+          {
+            "id": "step-res-1-2",
+            "stepNumber": 2,
+            "action": "Copy DKIM public key and paste into Cloudflare DNS",
+            "targetElement": "code.dns-record-value",
+            "elementDescription": "DKIM record text",
+            "selectorType": "CSS",
+            "importance": "DKIM authorization",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "DNS Records Setup",
+              "route": "https://resend.com/domains/my-domain/dns",
+              "wireframeType": "form",
+              "highlightBox": {
+                "top": 35,
+                "left": 25,
+                "width": 55,
+                "height": 10,
+                "label": "Copy: DKIM Record"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "wf-res-2",
+        "title": "Send First Transactional Email with React Email Component",
+        "description": "Generating API token and triggering Node.js SDK dispatch.",
+        "category": "Integration",
+        "explanatoryScore": 0.78,
+        "estimatedDuration": "18s",
+        "isPrimary": false,
+        "stepsCount": 2,
+        "steps": [
+          {
+            "id": "step-res-2-1",
+            "stepNumber": 1,
+            "action": "Create API Key with 'Sending access' permission",
+            "targetElement": "button[data-testid='btn-create-api-key']",
+            "elementDescription": "API key generator button",
+            "selectorType": "data-testid",
+            "importance": "API token generation",
+            "timestamp": "00:05",
+            "screenshotMockup": {
+              "pageTitle": "Resend API Keys",
+              "route": "https://resend.com/api-keys",
+              "wireframeType": "modal",
+              "highlightBox": {
+                "top": 40,
+                "left": 30,
+                "width": 40,
+                "height": 8,
+                "label": "Button: Create API Key"
+              }
+            }
+          },
+          {
+            "id": "step-res-2-2",
+            "stepNumber": 2,
+            "action": "Run `resend.emails.send` code snippet in editor",
+            "targetElement": "pre.code-preview-block",
+            "elementDescription": "Code snippet runner",
+            "selectorType": "CSS",
+            "importance": "Dispatch execution",
+            "timestamp": "00:12",
+            "screenshotMockup": {
+              "pageTitle": "Code Quickstart",
+              "route": "https://resend.com/overview",
+              "wireframeType": "dashboard",
+              "highlightBox": {
+                "top": 50,
+                "left": 20,
+                "width": 60,
+                "height": 20,
+                "label": "Code: resend.emails.send()"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "script": {
+      "tone": "technical",
+      "language": "English (US)",
+      "wordCount": 75,
+      "estimatedDuration": "00:35",
+      "approved": false,
+      "sentences": [
+        {
+          "id": "sent-res-1",
+          "timestamp": "00:00 - 00:18",
+          "fullText": "Resend modernizes transactional emails for developers with modern DNS verification and clean React templates.",
+          "tokens": [
+            { "text": "Resend modernizes transactional emails for developers with modern ", "isGrounded": false },
+            {
+              "text": "DNS verification",
+              "isGrounded": true,
+              "groundingDetails": {
+                "targetElement": "button[data-testid='btn-add-domain']",
+                "targetLabel": "Add domain trigger",
+                "pageUrl": "https://resend.com/domains",
+                "confidence": 0.88,
+                "domSelector": "button[data-testid='btn-add-domain']"
+              }
+            },
+            { "text": " and clean React templates.", "isGrounded": false }
+          ]
+        }
+      ]
+    },
+    "video": {
+      "title": "Resend: Developer Transactional Email Discovery (Processing)",
+      "aspectRatio": "16:9",
+      "resolution": "1080p 60fps",
+      "durationSeconds": 35,
+      "voiceoverModel": "ElevenLabs Studio / Adam",
+      "scenes": [
+        {
+          "id": "sc-res-1",
+          "startTime": 0,
+          "endTime": 18,
+          "title": "Domain Setup",
+          "narration": "Resend modernizes transactional emails for developers.",
+          "sceneType": "intro"
+        }
+      ]
+    }
+  }
+]
